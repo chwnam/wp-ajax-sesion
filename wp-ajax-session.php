@@ -94,7 +94,7 @@ function was_admin_menu() {
 
 function was_output_admin_menu() {
 	?>
-    <h1>WP Ajax &amp; Session Manage</h1>
+    <h1>WP Ajax &amp; Session Test</h1>
     <div class="wrapper">
         <div>
             <p>
