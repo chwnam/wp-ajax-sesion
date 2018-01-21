@@ -28,14 +28,14 @@ if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 					error_log( 'was_init_test >>>> session started. Session ID: ' . session_id() );
 				}
 			} else {
-			    // Destroy the session and clear the session cooke.
-                if( !session_id()) {
-                    session_start();
-                }
-                $session_id = session_id();
-                session_unset();
+				// Destroy the session and clear the session cooke.
+				if ( ! session_id() ) {
+					session_start();
+				}
+				$session_id = session_id();
+				session_unset();
 				session_destroy();
-				setcookie(session_name(), null, -1, '/');
+				setcookie( session_name(), NULL, - 1, '/' );
 				error_log( 'was_init_test >>>> session destroyed. Session ID: ' . $session_id );
 			}
 			return;
@@ -50,7 +50,7 @@ if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 				}
 			} else {
 				error_log( 'was_long_request >>>> session canceled.' );
-            }
+			}
 			return;
 		}
 	}
@@ -58,7 +58,7 @@ if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 
 
 // AJAX for initializing the test.
-add_action( 'wp_ajax_was_init_test', function() {
+add_action( 'wp_ajax_was_init_test', function () {
 	wp_send_json_success();
 } );
 
@@ -69,9 +69,9 @@ add_action( 'wp_ajax_was_long_request', 'was_long_request' );
 function was_long_request() {
 	$delay = isset( $_GET['delay'] ) ? intval( $_GET['delay'] ) : 10;
 	if ( $delay <= 30 ) {
-	    $sequence = isset( $_GET['sequence'] ) ? intval( $_GET['sequence'] ) : 'unknown';
+		$sequence = isset( $_GET['sequence'] ) ? intval( $_GET['sequence'] ) : 'unknown';
 		sleep( $delay );
-		error_log( 'was_long_request >>> done request #' . $sequence);
+		error_log( 'was_long_request >>> done request #' . $sequence );
 		wp_send_json_success( 'O.K. ' . $delay . ' delayed.' );
 	} else {
 		wp_send_json_error( 'Error. Requested delay is too long. Delay up to 30 seconds is allowed.' );
