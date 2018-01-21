@@ -1,10 +1,8 @@
 # wp-ajax-session
 
-WordPress sample plugin for illustrating that using session is not a good idea.
+Want to use PHP's session in your WP plugins? Please think it again. Using session can hurt performance!
 
-Want to use PHP's session in your WP plugins? Please think it again. Using session plugins can hurt performance!
-
-This plugin is created to show you how bad it is. Download install this plgin. Activate it in your *TEST* wordpress site.
+I wrote this plugin to show how bad it is. Download install this plugin. Activate it in your *TEST* wordpress site.
 You will see 'WAS (WP AJAX Session) Test' menu in the administration screen.
 
 ![](was_screenshot_01.jpg)
